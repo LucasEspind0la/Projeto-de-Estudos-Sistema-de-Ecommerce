@@ -17,7 +17,7 @@ spring:
 
 app:
   jwt:
-    chave-secreta: ${JWT_SECRET:chave_de_teste_ficticia}
+    chave-secreta: ${JWT_SECRET:minha_chave_super_secreta_com_mais_de_32_caracteres_1234}
     expiracao-ms: 86400000
   upload:
     diretorio: ./uploads

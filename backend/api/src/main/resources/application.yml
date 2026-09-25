@@ -24,7 +24,7 @@ spring:
       max-request-size: 10MB
 app:
   jwt:
-    chave-secreta: ${JWT_SECRET:sua_chave_secreta_jwt_aqui}
+    chave-secreta: ${JWT_SECRET:minha_chave_super_secreta_com_mais_de_32_caracteres_1234}
     expiracao-ms: 86400000
   upload:
     diretorio: ./uploads
