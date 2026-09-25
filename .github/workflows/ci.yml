@@ -18,8 +18,8 @@ jobs:
           distribution: 'temurin'
       - name: Dar permissão de execução ao Maven Wrapper
         run: chmod +x backend/api/mvnw
-      - name: Rodar testes do Backend
-        run: cd backend/api && ./mvnw test
+      - name: Rodar testes do Backend (com chave JWT forçada)
+        run: cd backend/api && ./mvnw test -Dapp.jwt.chave-secreta="minha_chave_super_secreta_com_mais_de_32_caracteres_1234"
 
   testar-frontend:
     name: Testar Frontend (Angular)
