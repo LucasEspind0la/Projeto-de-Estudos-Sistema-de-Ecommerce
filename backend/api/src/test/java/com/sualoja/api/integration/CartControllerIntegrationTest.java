@@ -63,7 +63,6 @@ class CartControllerIntegrationTest {
         variante.setProduto(prod); variante.setCor("Azul"); variante.setTamanho("M"); variante.setSku("SKU-CART");
         variante.setPreco(BigDecimal.valueOf(50.00)); variante.setEstoque(20);
         variantRepository.save(variante);
-        varianteId = variante.getId();
 
         // CORREÇÃO SÊNIOR: Criar o carrinho e o item DIRETAMENTE no banco (100% confiável)
         Cart cart = new Cart();
