@@ -1,15 +1,18 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 
-// URL REAL DO SEU BACKEND NO RENDER
 const BACKEND_URL = 'https://api-ecommerce-95r7.onrender.com';
 
 export const apiUrlInterceptor: HttpInterceptorFn = (req, next) => {
-  // Se a requisição começar com '/api', adiciona a URL do Render na frente
+  // RASTREADOR: Isso vai aparecer no console do navegador se o interceptor estiver funcionando
+  console.log('🕵️ INTERCEPTOR RODANDO! URL original:', req.url);
+
   if (req.url.startsWith('/api')) {
-    const apiReq = req.clone({ url: `${BACKEND_URL}${req.url}` });
+    const novaUrl = `${BACKEND_URL}${req.url}`;
+    console.log('✅ URL modificada para:', novaUrl);
+    
+    const apiReq = req.clone({ url: novaUrl });
     return next(apiReq);
   }
   
-  // Caso contrário, segue normalmente
   return next(req);
 };
