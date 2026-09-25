@@ -1,0 +1,37 @@
+name: CI - Testar Backend e Frontend
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  testar-backend:
+    name: Testar Backend (Spring Boot)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código do repositório
+        uses: actions/checkout@v4
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Dar permissão de execução ao Maven Wrapper
+        run: chmod +x backend/api/mvnw
+      - name: Rodar testes do Backend
+        run: cd backend/api && ./mvnw test
+
+  testar-frontend:
+    name: Testar Frontend (Angular)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código do repositório
+        uses: actions/checkout@v4
+      - name: Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar dependências do Frontend
+        run: cd frontend && npm install
+      - name: Compilar Frontend (Build de Produção)
+        run: cd frontend && npm run build
