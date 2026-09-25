@@ -1,6 +1,5 @@
 package com.sualoja.api.service;
 
-import com.sualoja.api.dto.request.AddToCartRequest;
 import com.sualoja.api.dto.request.UpdateCartItemRequest;
 import com.sualoja.api.exception.ResourceNotFoundException;
 import com.sualoja.api.model.entity.Cart;
@@ -28,7 +27,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

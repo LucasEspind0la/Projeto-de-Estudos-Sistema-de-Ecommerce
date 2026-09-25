@@ -39,7 +39,6 @@ class CartControllerIntegrationTest {
     @Autowired private PasswordEncoder passwordEncoder;
 
     private String tokenCliente;
-    private Long varianteId;
     private Long itemId;
 
     @BeforeEach
